@@ -1,0 +1,9 @@
+# Temporary file
+tmp
+# Shared data
+shared/*
+# All files of git
+.git/
+.gitignore
+LICENSE
+README.md
