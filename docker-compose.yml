@@ -1,14 +1,7 @@
 version: '3.4'
 
 services:
-  workspace:
-    container_name: workspace
-    # build:
-    #   context: .
-    #   dockerfile: ./Dockerfile
-    image: workspace:latest
-    ports:
-      - "2222:22"
-    volumes:
-      - /Users/zhangpeng/Desktop/workspace/shared/:/root/shared/
-    tty: true
+  base:
+    container_name: base
+    build:
+      context: ./base
