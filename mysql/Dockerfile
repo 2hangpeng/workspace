@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM ubuntu:latest as base
+FROM ubuntu:22.04 as base
 
 # Set the non interactive
 ARG DEBIAN_FRONTEND=noninteractive
@@ -55,3 +55,16 @@ RUN wget -P "/tmp" "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz" \
 ENV PATH=“$PATH:/usr/local/go/bin \
     GO111MODULE="on" \
     GOPROXY="https://goproxy.cn,direct"
+
+
+# Installation dependencies
+# RUN sed -i -E "s/(archive|security).ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list \
+#     && apt-get update && apt-get upgrade -y \
+#     && apt-get install --no-install-recommends -y \
+#     apt-transport-https ca-certificates \
+#     software-properties-common tzdata git wget curl \
+#     && apt-add-repository ppa:fish-shell/release-3 \
+#     && apt-get install fish \
+#     && apt-get purge \
+#     && apt-get clean \
+#     && rm -rf /var/cache/apt 

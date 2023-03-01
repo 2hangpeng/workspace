@@ -3,7 +3,7 @@
 set -e
 
 # Restart ssh service
-  service ssh restart >/dev/null 2>&1
+service ssh restart >/dev/null 2>&1
 
 # Set the timezone with TZ
 if [ -n "$TZ" ]; then
